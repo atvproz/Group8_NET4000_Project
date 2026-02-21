@@ -7,9 +7,9 @@ class SimpleQLearning:
         self.links = list(net.links)
         self.switches = ['s1', 's2', 's3', 's4', 's5']
         self.q_table = {}  # State-action Q-values
-        self.learning_rate = 0.1
-        self.discount = 0.9
-        self.epsilon = 0.3
+        self.learning_rate = 0.1                    # Learning rate is the degree to which the AI can deviate/adjust/correct its own parameters. 
+        self.discount = 0.9                         # Discount factor is the tendency to value future reward over immediate reward.
+        self.epsilon = 0.3                          # Epsilon is the chance that the agent will explore a new action and its associated reward.
         
     def get_neighbors(self, switch_name):
         """Get neighboring switches"""
@@ -32,14 +32,16 @@ class SimpleQLearning:
     
     def choose_action(self, state, neighbors):
         """Epsilon-greedy action selection"""
-        if random.random() < self.epsilon or not neighbors:
+        if random.random() < self.epsilon or not neighbors:             
             return random.choice(neighbors) if neighbors else None
+                    
+        q_values = [self.q_table.get((state, n), 0) for n in neighbors]         # Obtains the rewards for all the neighbors (that' stored in the Q-table).
         
-        # Choose best action from Q-table
-        q_values = [self.q_table.get((state, n), 0) for n in neighbors]
-        max_q = max(q_values)
-        best_actions = [n for n, q in zip(neighbors, q_values) if q == max_q]
-        return random.choice(best_actions)
+        max_q = max(q_values)                                                   # Obtains the maximum value among the neighboring switches. 
+        best_actions = [n for n, q in zip(neighbors, q_values) if q == max_q]   # Create a list of tie-breakers
+        return random.choice(best_actions)                                      # Randomly select among the best actions to break ties.      
+    
+
     
     def update_q(self, state, action, reward, next_state):
         """Update Q-value"""
@@ -95,6 +97,7 @@ def train_ddpg_model(net):
                 break
         
         if (episode + 1) % 20 == 0:
+            # Print episode summary every 20 episodes
             print(f"Episode {episode + 1}/{num_episodes}, Reward: {total_reward:.2f}, Path: {' -> '.join(path)}")
     
     print("Training complete!")
