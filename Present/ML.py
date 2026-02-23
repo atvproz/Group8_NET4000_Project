@@ -16,6 +16,8 @@ class SimpleQLearning:
         try:
             sw = self.net.get(switch_name)
             neighbors = []
+
+            # Iterate through the interfaces of a switch to find its connected neighbors
             for intf in sw.intfs.values():
                 if hasattr(intf, 'link') and intf.link:
                     other_intf = intf.link.intf1 if intf.link.intf2 == intf else intf.link.intf2
@@ -68,14 +70,14 @@ def train_ddpg_model(net):
         total_reward = 0
         
         for step in range(10):
-            state = agent.get_state(current)
-            neighbors = agent.get_neighbors(current)
+            state = agent.get_state(current)                    
+            neighbors = agent.get_neighbors(current)            # Obtains the neighbors of the current switch. 
             
-            if not neighbors:
+            if not neighbors:                                   # If there are no neighbors, it means the agent is stuck and cannot move, so we break out of the loop.
                 break
                 
-            action = agent.choose_action(state, neighbors)
-            if not action:
+            action = agent.choose_action(state, neighbors)     
+            if not action:      
                 break
             
             # Reward: positive for getting closer to target
@@ -86,14 +88,14 @@ def train_ddpg_model(net):
                 reward = -1
                 done = False
             
-            total_reward += reward
-            next_state = agent.get_state(action)
-            agent.update_q(state, action, reward, next_state)
+            total_reward += reward                              # Accumulate total reward for the episode
+            next_state = agent.get_state(action)                # Gets the next set of actions ready for the next episode 
+            agent.update_q(state, action, reward, next_state)   # Updates the Q-table based on the action taken and the reward received
             
-            path.append(action)
+            path.append(action)                                 # Add the chosen action to the path
             current = action
             
-            if done:
+            if done: 
                 break
         
         if (episode + 1) % 20 == 0:
@@ -107,8 +109,8 @@ def test_ddpg_model(model, env):
     """Test the trained Q-learning model"""
     print("\n=== Testing trained model ===")
     
-    current = 's3'
-    target = 's2'
+    current = 's3'          # Starting switch 
+    target = 's2'           # Destination switch
     path = [current]
     
     for step in range(10):
