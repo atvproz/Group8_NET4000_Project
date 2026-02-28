@@ -1,7 +1,28 @@
 If your viewing this in Visual Studio Code, press Ctrl + Shift + V, to view file in the intended Markdown format. <br><br>
 
-# How to run the code
+# Project 5: Delay-Predictive Routing for Emulated Non-Terrestial Networks
+Contributors: Spencer Craig, Alexandre Picard, Cameron Wellman, Justin Le<br>
+Space is an unpredictable environment, causing fluctations in latency for Low Earth Orbit (LEO) satellites. Our project emulates LEO satellites, and aims to predict the best path by integrating machine-learning.<br>
 
+The chosen machine-learning algorithm is DDPG or *Deep Deterministic Policy Gradient*. Reason why we chose DDPG ... blah blah ...<br>
+
+
+**Other notes:**
+- Code language: Python 
+- By default, 
+    - The machine learning algorithm executes 100 iterations. 
+    - The starting satellite is S2. 
+    - The destination satellite is S3. 
+- Requires Linux Ubuntu and Mininet.
+<br><br>
+
+**Simulated Topology** <br>
+![Topology](NET4000%20_Topology_A1.png)
+
+
+
+# How to run the code
+<br>
 
 # Dictionary 
 
