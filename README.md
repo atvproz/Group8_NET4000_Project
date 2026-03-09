@@ -1,10 +1,10 @@
 If your viewing this in Visual Studio Code, press Ctrl + Shift + V, to view file in the intended Markdown format. <br><br>
 
 # Project 5: Delay-Predictive Routing for Emulated Non-Terrestial Networks
-Contributors: Spencer Craig, Alexandre Picard, Cameron Wellman, Justin Le<br>
+Contributors: Spencer Craig, Alexandre Picard, Cameron Wellman, Justin Le<br><br>
 Space is an unpredictable environment, causing fluctations in latency for Low Earth Orbit (LEO) satellites. Our project emulates LEO satellites, and aims to predict the best path by integrating machine-learning.<br>
 
-The chosen machine-learning algorithm is DDPG or *Deep Deterministic Policy Gradient*. Reason why we chose DDPG ... blah blah ...<br>
+Our group selected the *Deep Deterministic Policy Gradient* (DDPG) algorithm for the project. DDPG is an off‑policy reinforcement learning method that improves its performance by learning from previously collected experiences. This is policy is best used for prediction.<br>
 
 
 **Other notes:**
@@ -16,8 +16,8 @@ The chosen machine-learning algorithm is DDPG or *Deep Deterministic Policy Grad
 - Requires Linux Ubuntu and Mininet.
 <br><br>
 
-**Simulated Topology** <br>
-![Topology](NET4000%20_Topology_A1.png)
+### Simulated Topology 
+![Topology](NET4000_Topology_A2.png)
 
 
 
