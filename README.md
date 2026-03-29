@@ -19,12 +19,8 @@ As displayed in Figure 1, the topology consist of:
 - Fully meshed switch interconnections: 
     - S1↔{s2, s3,s4, s5}
     - S2↔{s3, s5}
-    - s3↔s4, s4↔s5​<br><br><br>
+    - s3↔s4, s4↔s5​<br><br>
 
-
-
-
-### Simulated Topology 
 ![Topology](NET4000_Topology_A2.png)<br><br><br>
 
 ### IV.  EMULATION ENVIRONMENT
@@ -53,12 +49,9 @@ From a more broad perspective we can say that the observed results primarily imp
 These results should be interpreted with several limitations in mind. Knowing that the experimentation was conducted in a non-terrestrial network with specific topology size and a specific amount of links these results may differ in the real world where there this topology would need to be scaled up significantly. It should also be considered that if the delay predictions are out of date the predictive controller can also lose all its benefits, potentially making routing even worse than it is.<br>
 ![Figure 2](Figure_2.png)<br><br><br>
 
-<br><br><br>
-
 
 ### VIII. CONCLUSION
 Overall, short‑term delay prediction using the DDPG machine learning algorithm improves routing stability and packet delivery in highly dynamic topologies. Although it increases latency because of machine learning overhead, it compensates for this weakness by reducing loss of data by half. <br><br>
-
 With these findings, machine learning algorithms should be implemented in LEO to improve network performance. <br><br><br>
 
 ### IX. RELATED WORK
@@ -70,7 +63,7 @@ This paper focuses on how satellite-terrestrial networks have become more comple
 This paper considers the application of deep reinforcement learning for routing dynamic IOT networks. While this paper is not about non terrestrial networks, we found it to still be relevant because of its use of machine learning to maintain routing consistency through complex, moving networks. It outlines the challenges of routing through changing topologies, similar to our variable bandwidth links, where links change states and quality often. This is often the case with IOT devices because of their less resilient and mobile nature. Another interesting point is the scalability concerns when using machine learning over a very large changing network. Which would be the case for a larger scaled up variant of our project. The authors reference using a distributed routing model rather than a centralized one for larger networks because it distributes the computational load more evenly so that updates can happen for the changing paths more frequently without needing to spend large amounts of time recalculating.<br><br>
 
 <b>Predicting Internet end-to-end delay: an overview</b><br>
-This paper is a great connection to the core of our project, the delay prediction. The paper describes how predicting the end to end delay is important to choose the best routing algorithm to use. It explains the importance of this because of how dynamically the internet shifts, and that delay prediction is becoming more and more important to allow for consistent traffic flows. We found that this paper does a good job at explaining the importance of delay prediction  as well as explaining different machine learning approaches, mainly model based and neural based and going over their benefits and drawbacks. The authors recommend using a hybrid approach, as it allows you to have the benefits of both while still balancing the drawbacks. This connects back to our project through our choice of model as well as the fundamental function of delay prediction in our bandwidth changing network design.
+This paper is a great connection to the core of our project, the delay prediction. The paper describes how predicting the end to end delay is important to choose the best routing algorithm to use. It explains the importance of this because of how dynamically the internet shifts, and that delay prediction is becoming more and more important to allow for consistent traffic flows. We found that this paper does a good job at explaining the importance of delay prediction  as well as explaining different machine learning approaches, mainly model based and neural based and going over their benefits and drawbacks. The authors recommend using a hybrid approach, as it allows you to have the benefits of both while still balancing the drawbacks. This connects back to our project through our choice of model as well as the fundamental function of delay prediction in our bandwidth changing network design.<br><br>
 
 <b>Reinforcement Learning with Deep Deterministic Policy Gradient</b><br>
 This article discusses the basics of DDPG and some practical applications of the model in the real world. It also goes into great detail about the specifics of the algorithm itself and its evolution from Q Learning. Our project uses this exact algorithm for our delay prediction with the controller to determine the best route for the traffic to take. The article compares the differences between Q Learning, that it does not scale well, DQN, that it has some improvements in depth for its algorithm but still has issues when it comes to scalability, and lastly DDPG, the extended variant of DQN that is more effective for frequent changes because of non discreet weighting. This allows more outside of predefined paths, which is better for a complex routing environment with many potential pathing options. <br><br><br>
@@ -85,7 +78,7 @@ This article discusses the basics of DDPG and some practical applications of the
 [3] H. Tan, “Reinforcement Learning with Deep Deterministic Policy Gradient,” IEEE Xplore, May 01, 2021. https://ieeexplore.ieee.org/document/9545961<br><br><br>
 
 
-# Other notes:
+# Other notes
 - Code language: Python 
 - By default, 
     - The machine learning algorithm executes 100 iterations. 
