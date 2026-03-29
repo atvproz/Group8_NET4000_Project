@@ -5,6 +5,7 @@ from mininet.node import RemoteController
 from mininet.node import OVSSwitch
 from mininet.log import setLogLevel
 from mininet.cli import CLI
+from latency_check import latency_check
 import time
 
 # Import ML functions
@@ -53,16 +54,24 @@ def main():
         switch.cmd('ovs-vsctl set Bridge', switch.name, 'stp_enable=false')
     
     print("\n Waiting for controller to connect...")
-    time.sleep(3)
+    time.sleep(60)
     
     print("\n Testing connectivity...")
     net.pingAll()
     
+    r1 = latency_check(net, 'STP')
+
     # Train DDPG model
     model, env = train_ddpg_model(net)
     
     # Test the trained model
     test_ddpg_model(model, env)
+
+    
+    r2 = latency_check(net, 'AI Model')
+
+
+    print(f"\nAdj difference: {abs(r2['adj']-r1['adj']):.3f}ms — {'AI wins' if r2['adj'] < r1['adj'] else 'STP wins'}")
     
     print("\n=== Network Ready ===")
     print("DDPG-optimized network ready.")
