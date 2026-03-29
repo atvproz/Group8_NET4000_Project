@@ -54,7 +54,7 @@ def main():
         switch.cmd('ovs-vsctl set Bridge', switch.name, 'stp_enable=false')
     
     print("\n Waiting for controller to connect...")
-    time.sleep(3)
+    time.sleep(60)
     
     print("\n Testing connectivity...")
     net.pingAll()
