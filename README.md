@@ -92,8 +92,8 @@ This article discusses the basics of DDPG and some practical applications of the
 1) Install Ryu in Linux. 
 2) In the first Linux terminal, enter the command: ```python3 controllertoponew.py```
 3) In a secondary terminal, enter the command: ```ryu-manager bandwidth_controller.py```
-4) Program will then start running ```sudo mn -c```
-5) Note: When finished please enter 
+4) Program will then start running
+5) Note: When finished please enter  ```sudo mn -c```
 <br><br><br>
 
 # Dictionary 
