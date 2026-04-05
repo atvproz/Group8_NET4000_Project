@@ -90,10 +90,19 @@ This article discusses the basics of DDPG and some practical applications of the
 
 # How to run the code
 1) Install Ryu in Linux. 
-2) In the first Linux terminal, enter the command: ```python3 controllertoponew.py```
-3) In a secondary terminal, enter the command: ```ryu-manager bandwidth_controller.py```
-4) Program will then start running
-5) Note: When finished please enter  ```sudo mn -c```
+2) Inside of vm, cd ```cd /home/mininet/ryu```
+3) Then enter the below commands 
+``` 
+sudo apt install -y python3-pip 
+git clone https://github.com/osrg/ryu.git 
+sudo python3 ./setup.py install 
+sudo pip3 install --upgrade ryu
+```
+4) In the first Linux terminal, enter the command: ```python3 controllertoponew.py```
+5) In a secondary terminal, enter the command: ```ryu-manager bandwidth_controller.py```
+6) Program will then start running
+7) In an internet browser within Linux, type the following url: https://localhost:5000 
+8) Note: When finished please enter  ```sudo mn -c```
 <br><br><br>
 
 # Dictionary 
